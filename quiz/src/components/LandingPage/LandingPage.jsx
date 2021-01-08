@@ -44,7 +44,7 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        <Container>
+        <Container className="mt-5 ml-5">
           <Row>
             <h3>Enter Test Name and your FirstName</h3>
           </Row>
