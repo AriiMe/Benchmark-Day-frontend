@@ -9,6 +9,7 @@ import {
   Button,
   ProgressBar,
 } from "react-bootstrap";
+import "./Quiz.css";
 
 class Questions extends React.Component {
   state = {
@@ -64,13 +65,13 @@ class Questions extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container className="answers">
         {console.log(this.props.question)}
         <Row>{this.props.question.text}</Row>
         <Row>
           <ProgressBar variant="success" now={this.props.question.duration} />
         </Row>
-        <Row>
+        <Row classname="realAnswers">
           <Form onSubmit={this.submitAnswer}>
             <Form.Group as={Row}>
               {this.props.question.answers.map((answer, index) => (
@@ -94,7 +95,12 @@ class Questions extends React.Component {
               ))}
             </Form.Group>
             {this.state.isSelected && (
-              <Button type="submit">next question</Button>
+              <Button
+                style={{ width: "200px", borderRadius: "5px" }}
+                type="submit"
+              >
+                next question
+              </Button>
             )}
           </Form>
         </Row>

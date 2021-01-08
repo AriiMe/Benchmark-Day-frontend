@@ -17,23 +17,25 @@ export default class QuizPage extends Component {
   };
 
   nextQuestion = () => {
-    this.setState({ selectedIndex: this.state.selectedIndex + 1 });
+    let nextQ = this.state.selectedIndex + 1;
     this.setState({
-      selectedQuestion: this.props.exam.questions[this.state.selectedIndex],
+      selectedIndex: nextQ,
+      selectedQuestion: this.props.exam.questions[nextQ],
     });
   };
 
   render() {
     return (
-      <div>
-        {this.state.selectedQuestion.hasOwnProperty("text") &&
-        this.state.selectedIndex <= 4 ? (
-          <Questions
-            index={this.state.selectedIndex}
-            question={this.state.selectedQuestion}
-            examID={this.props.exam._id}
-            nextQuestion={this.nextQuestion}
-          />
+      <div className="score">
+        {this.state.selectedIndex <= 4 ? (
+          this.state.selectedQuestion.hasOwnProperty("text") && (
+            <Questions
+              index={this.state.selectedIndex}
+              question={this.state.selectedQuestion}
+              examID={this.props.exam._id}
+              nextQuestion={this.nextQuestion}
+            />
+          )
         ) : (
           <Score examID={this.props.exam._id} />
         )}

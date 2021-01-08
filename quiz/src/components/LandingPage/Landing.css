@@ -1,0 +1,8 @@
+.landing{
+    margin: 0 !important;
+    position: absolute !important;
+    top: 40% !important;
+    left: 50% !important;
+    margin-right: -50% !important;
+    margin-left: -5% !important;
+}

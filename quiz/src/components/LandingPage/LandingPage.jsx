@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { Container, Row, Form, Button } from "react-bootstrap";
+import "./Landing.css";
 
 export default class LandingPage extends Component {
   state = {
@@ -44,14 +45,15 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        <Container className="mt-5 ml-5">
-          <Row>
-            <h3>Enter Test Name and your FirstName</h3>
+        <Container className="landing">
+          <Row classname="yeet">
+            <h3>Quiz</h3>
           </Row>
           <Form onSubmit={this.submitTest}>
             <Form.Group>
               <Form.Label>Enter the test name</Form.Label>
               <Form.Control
+                style={{ width: "200px" }}
                 type="text"
                 id="candidateName"
                 placeholder="test name"
@@ -62,6 +64,7 @@ export default class LandingPage extends Component {
             <Form.Group>
               <Form.Label>Enter your first name</Form.Label>
               <Form.Control
+                style={{ width: "200px" }}
                 type="text"
                 id="name"
                 placeholder="your name"
@@ -69,7 +72,12 @@ export default class LandingPage extends Component {
                 onChange={(e) => this.updateState(e)}
               />
             </Form.Group>
-            <Button type="submit">Begin</Button>
+            <Button
+              type="submit"
+              style={{ width: "200px", borderRadius: "5px" }}
+            >
+              Begin
+            </Button>
           </Form>
         </Container>
       </div>
