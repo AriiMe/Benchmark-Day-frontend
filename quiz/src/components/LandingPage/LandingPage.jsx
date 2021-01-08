@@ -29,8 +29,8 @@ export default class LandingPage extends Component {
         },
       });
       let exam = await response.json();
-      this.setState({ testContent: test });
-      console.log(exam);
+      this.props.startTest(exam);
+      this.props.history.push("/exam/" + exam._id);
     } catch (error) {
       console.log(error);
     }
@@ -48,35 +48,29 @@ export default class LandingPage extends Component {
           <Row>
             <h3>Enter Test Name and your FirstName</h3>
           </Row>
-          <Row>
-            <Form onSubmit={this.submitTest}>
-              <Form.Group>
-                <Form.Label>Enter the test name</Form.Label>
-                <Form.Control
-                  type="text"
-                  id="candidateName"
-                  placeholder="test name"
-                  value={this.state.candidateName}
-                  onChange={(e) => this.updateState(e)}
-                />
-              </Form.Group>
-            </Form>
-          </Row>
-          <Row>
-            <Form>
-              <Form.Group>
-                <Form.Label>Enter your first name</Form.Label>
-                <Form.Control
-                  type="text"
-                  id="name"
-                  placeholder="your name"
-                  value={this.state.name}
-                  onChange={(e) => this.updateState(e)}
-                />
-              </Form.Group>
-              <Button type="submit">Begin</Button>
-            </Form>
-          </Row>
+          <Form onSubmit={this.submitTest}>
+            <Form.Group>
+              <Form.Label>Enter the test name</Form.Label>
+              <Form.Control
+                type="text"
+                id="candidateName"
+                placeholder="test name"
+                value={this.state.candidateName}
+                onChange={(e) => this.updateState(e)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Enter your first name</Form.Label>
+              <Form.Control
+                type="text"
+                id="name"
+                placeholder="your name"
+                value={this.state.name}
+                onChange={(e) => this.updateState(e)}
+              />
+            </Form.Group>
+            <Button type="submit">Begin</Button>
+          </Form>
         </Container>
       </div>
     );
