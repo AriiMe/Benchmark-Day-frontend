@@ -67,9 +67,11 @@ class Questions extends React.Component {
     return (
       <Container className="answers">
         {console.log(this.props.question)}
-        <Row>{this.props.question.text}</Row>
         <Row>
-          <ProgressBar variant="success" now={this.props.question.duration} />
+          <h3>{this.props.question.text}</h3>
+        </Row>
+        <Row>
+          <ProgressBar variant="info" now={this.props.question.duration} />
         </Row>
         <Row classname="realAnswers">
           <Form onSubmit={this.submitAnswer}>
@@ -77,8 +79,17 @@ class Questions extends React.Component {
               {this.props.question.answers.map((answer, index) => (
                 <Col xs={6} key={index}>
                   <Form.Check
+                    classname="lg"
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 600,
+                      color: "#05545E",
+                      marginLeft: "450px",
+                    }}
                     type="radio"
                     name="answerChecks"
+                    lg={6}
+                    size="lg"
                     id={index}
                     label={answer.text}
                     onClick={() =>
@@ -96,7 +107,7 @@ class Questions extends React.Component {
             </Form.Group>
             {this.state.isSelected && (
               <Button
-                style={{ width: "200px", borderRadius: "5px" }}
+                style={{ width: "300px", borderRadius: "5px" }}
                 type="submit"
               >
                 next question

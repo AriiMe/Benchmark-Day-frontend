@@ -1,0 +1,10 @@
+.text-center{
+    font-size: 800px !important;
+    margin: 0 !important;
+    position: absolute !important;
+    top: 40% !important;
+    left: 45% !important;
+    margin-right: -50% !important;
+    margin-left: -15% !important;
+    text-align: center !important;
+}

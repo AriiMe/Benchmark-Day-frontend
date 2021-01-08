@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
-
+import "./Score.css";
 class Score extends React.Component {
   state = {
     exam: {},
@@ -27,21 +27,21 @@ class Score extends React.Component {
 
   render() {
     return (
-      <Container className="text-center mt-5">
-        <Col>
+      <Container className="text-center">
+        <Col classname="yeet">
           <Row>
             <h1>Score</h1>
           </Row>
         </Col>
         <Col>
           <Row>
-            <h5>
+            <h3>
               you scored: &nbsp;
               {this.state.exam
                 ? this.state.exam.score
                 : "Currently calculating"}{" "}
               points
-            </h5>
+            </h3>
           </Row>
         </Col>
       </Container>
